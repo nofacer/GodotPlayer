@@ -3,10 +3,11 @@ using System;
 
 public class Command : Node
 {
-    public Command() { }
-
-    public virtual void execute(KinematicBody2D charactor)
+    public String group;
+    public String name;
+    public Command(String group, String name)
     {
-
+        this.group = group;
+        this.name = name;
     }
 }

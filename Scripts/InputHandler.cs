@@ -3,8 +3,8 @@ using System;
 
 public class InputHandler : Node
 {
-    private WalkRightCommand walkRightCommand = new WalkRightCommand();
-    private WalkLeftCommand walkLeftCommand = new WalkLeftCommand();
+    private WalkRightCommand walkRightCommand = new WalkRightCommand("run", "walk_right");
+    private WalkLeftCommand walkLeftCommand = new WalkLeftCommand("run", "walk_left");
     public InputHandler() { }
 
     public Command handleInput()

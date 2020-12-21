@@ -4,6 +4,6 @@ using System;
 public class PlayerState : Node
 {
     public PlayerState() { }
-    public virtual void handleInput(KinematicBody2D character) { }
-    public virtual void update(KinematicBody2D character) { }
+    public virtual PlayerState handleInput(Player character, Command command) { return null; }
+    public virtual void update(Player character, Command command) { }
 }
