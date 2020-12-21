@@ -15,6 +15,6 @@ public class RunState : PlayerState
         animatedSprite.FlipH = (command.name == "walk_left") ? true : false;
         int flip = (command.name == "walk_left") ? -1 : 1;
         animatedSprite.Play("run");
-        character.MoveAndSlide(new Vector2(flip*40, 0), new Vector2(0, -1));
+        character.MoveAndSlide(new Vector2(flip * Constant.PLAYER_RUN_SPEED, 0), new Vector2(0, -1));
     }
 }
