@@ -16,10 +16,7 @@ public class Player : KinematicBody2D
     {
         Command command = inputHandler.handleInput();
         PlayerState newPlayerState = this.playerState.handleInput(this, command);
-        if (newPlayerState != null)
-        {
-            this.playerState = newPlayerState;
-        }
+        this.playerState = newPlayerState != null ? newPlayerState : this.playerState;
         this.playerState.update(this, command);
     }
 }
