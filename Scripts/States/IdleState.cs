@@ -13,5 +13,6 @@ public class IdleState : PlayerState
     {
         AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
         animatedSprite.Play("idle");
+        character.motion.x = 0;
     }
 }
