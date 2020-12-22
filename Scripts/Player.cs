@@ -21,14 +21,14 @@ public class Player : KinematicBody2D
         this.playerState = newPlayerState != null ? newPlayerState : this.playerState;
         this.playerState.enter(this);
         this.playerState.update(this, command);
-        if (IsOnFloor())
-        {
-            this.motion.y = 0;
-        }
-        else
-        {
-            this.motion.y += 10;
-        }
+        // if (IsOnFloor())
+        // {
+        //     this.motion.y = 0;
+        // }
+        // else
+        // {
+        //     this.motion.y += 10;
+        // }
         MoveAndSlide(motion, new Vector2(0, -1));
     }
 }

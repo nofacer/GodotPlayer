@@ -1,29 +1,25 @@
 using Godot;
 using System;
 
-public class IdleState : PlayerState
+public class JumpState : PlayerState
 {
     public override void enter(Player character)
     {
         AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
-        animatedSprite.Play("idle");
+        animatedSprite.Play("jump");
     }
     public override PlayerState handleInput(Player character, Command command)
     {
-        if (command?.group == "run")
+        if (!character.IsOnFloor() && character.motion.y >= 0)
         {
-            return new RunState();
-        }
-        if (command?.group == "jump")
-        {
-            character.motion.y = -300;
-            return new JumpState();
+            return new FallState();
         }
         return null;
     }
 
     public override void update(Player character, Command command)
     {
-        character.motion.x = 0;
+        AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
+        character.motion.y+=10;
     }
 }
