@@ -19,6 +19,7 @@ public class Player : KinematicBody2D
         Command command = inputHandler.handleInput();
         PlayerState newPlayerState = this.playerState.handleInput(this, command);
         this.playerState = newPlayerState != null ? newPlayerState : this.playerState;
+        this.playerState.enter(this);
         this.playerState.update(this, command);
         if (IsOnFloor())
         {
