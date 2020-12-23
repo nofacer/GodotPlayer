@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class JumpState : OnGround
+public class JumpState : PlayerState
 {
     public override void enter(Player character)
     {
@@ -10,7 +10,11 @@ public class JumpState : OnGround
     }
     public override PlayerState handleInput(Player character, Command command)
     {
-        return base.handleInput(character, command);
+        if (!character.IsOnFloor() && character.motion.y >= 0)
+        {
+            return new FallState();
+        }
+        return null;
     }
 
     public override void update(Player character, Command command)

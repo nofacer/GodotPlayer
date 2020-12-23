@@ -3,10 +3,10 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Wasteland-Files.png" type="Texture" id=2]
 
-[sub_resource type="ConvexPolygonShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 
-[sub_resource type="TileSet" id=2]
+[sub_resource type="TileSet" id=1]
 0/name = "Wasteland-Files.png 0"
 0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
@@ -26,14 +26,14 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
+0/shape = SubResource( 2 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 12, 6 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 1 ),
+"shape": SubResource( 2 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
@@ -41,10 +41,10 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 222.769, 124.24 )
+position = Vector2( 203.854, 95.8903 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 2 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 524311, 0, 393228, 524312, 0, 393228, 524313, 0, 393228, 589827, 0, 393228, 589828, 0, 393228, 589829, 0, 393228, 589844, 0, 393228, 589845, 0, 393228, 655365, 0, 393228, 655366, 0, 393228, 655367, 0, 393228, 655378, 0, 393228, 720903, 0, 393228, 720904, 0, 393228, 720905, 0, 393228, 720906, 0, 393228, 720907, 0, 393228, 720908, 0, 393228, 720909, 0, 393228, 720910, 0, 393228, 720911, 0, 393228, 720912, 0, 393228, 720913, 0, 393228, 720914, 0, 393228, 720915, 0, 393228, 720916, 0, 393228, 720917, 0, 393228, 720918, 0, 393228, 720919, 0, 393228, 720920, 0, 393228, 720921, 0, 393228, 720922, 0, 393228 )
