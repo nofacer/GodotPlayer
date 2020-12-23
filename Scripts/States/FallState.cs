@@ -1,14 +1,13 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 public class FallState : PlayerState
 {
     public override void enter(Player character)
     {
-        AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
-        animatedSprite.Play("fall");
+        character.playAnimation("fall");
     }
-    public override PlayerState handleInput(Player character, Command command)
+    public override PlayerState handleInput(Player character, CommandPool commands)
     {
         if (character.IsOnFloor())
         {
@@ -17,7 +16,7 @@ public class FallState : PlayerState
         return null;
     }
 
-    public override void update(Player character, Command command)
+    public override void update(Player character, CommandPool commands)
     {
         character.motion.y += 10;
     }

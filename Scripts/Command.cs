@@ -1,7 +1,6 @@
-using Godot;
 using System;
 
-public class Command : Node
+public class Command
 {
     public String group;
     public String name;

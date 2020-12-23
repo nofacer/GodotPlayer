@@ -1,24 +1,43 @@
-using System;
 using Godot;
+using System.Collections.Generic;
+
 
 public class RunState : PlayerState
 {
     public override void enter(Player character)
     {
-        AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
-        animatedSprite.Play("run");
+        character.playAnimation("run");
     }
-    public override PlayerState handleInput(Player character, Command command)
+    public override PlayerState handleInput(Player character, CommandPool commands)
     {
-        PlayerState newPlayerState = (command == null) ? new IdleState() : null;
-        return newPlayerState;
+        // To Idle State
+        if (commands.isEmpty()) { return new IdleState(); }
+        // To Jump State prioty
+        if (commands.commandStringContain("jump"))
+        {
+            character.motion.y = -500;
+            return new JumpState();
+        }
+        // To Run State
+        if (commands.commandStringContain("run_left") || commands.commandStringContain("run_right"))
+        {
+            return new RunState();
+        }
+        // Keep Last State
+        return null;
     }
 
-    public override void update(Player character, Command command)
+    public override void update(Player character, CommandPool commands)
     {
-        AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
-        animatedSprite.FlipH = (command.name == "walk_left") ? true : false;
-        int flip = (command.name == "walk_left") ? -1 : 1;
-        character.motion.x = flip * Constant.PLAYER_RUN_SPEED;
+        if (commands.commandStringContain("run_left"))
+        {
+            character.flipH();
+            character.motion.x = -1 * Constant.PLAYER_RUN_SPEED;
+        }
+        if (commands.commandStringContain("run_right"))
+        {
+            character.notFlipH();
+            character.motion.x = Constant.PLAYER_RUN_SPEED;
+        }
     }
 }
