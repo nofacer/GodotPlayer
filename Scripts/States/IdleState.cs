@@ -1,9 +1,13 @@
 using Godot;
 using System.Collections.Generic;
-
+using System;
 
 public class IdleState : PlayerState
 {
+    public IdleState()
+    {
+        this.name = "idle";
+    }
     public override void enter(Player character)
     {
         character.playAnimation("idle");
@@ -21,7 +25,8 @@ public class IdleState : PlayerState
             return new JumpState();
         }
         // To Fall State
-        if(!character.IsOnFloor()){
+        if (!character.IsOnFloor())
+        {
             return new FallState();
         }
         // Keep Last State

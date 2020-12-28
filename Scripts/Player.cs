@@ -23,6 +23,8 @@ public class Player : KinematicBody2D
         this.playerState.enter(this);
         this.playerState.update(this, commands);
         MoveAndSlide(motion, new Vector2(0, -1));
+        Label richTextLabel = (Label)this.GetNode("Label");
+        richTextLabel.Text = this.playerState.name;
     }
 
     public void playAnimation(String name)

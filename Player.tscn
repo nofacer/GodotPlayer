@@ -114,10 +114,8 @@ radius = 7.7106
 height = 22.0744
 
 [node name="Player" type="KinematicBody2D"]
+position = Vector2( 0.249939, -0.249931 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -0.162628 )
@@ -127,3 +125,14 @@ animation = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.162628, 3.41533 )
 shape = SubResource( 22 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -20.0
+margin_top = -36.0
+margin_right = 20.0
+margin_bottom = -22.0
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

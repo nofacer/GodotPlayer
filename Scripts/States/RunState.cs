@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class RunState : PlayerState
 {
+    public RunState()
+    {
+        this.name = "run";
+    }
     public override void enter(Player character)
     {
         character.playAnimation("run");

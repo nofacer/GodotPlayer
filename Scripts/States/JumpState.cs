@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class JumpState : PlayerState
 {
+    public JumpState()
+    {
+        this.name = "jump";
+    }
     public override void enter(Player character)
     {
         if (!character.previousPlayerState.GetType().Equals(typeof(JumpState)))
@@ -27,5 +31,16 @@ public class JumpState : PlayerState
     {
         AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
         character.motion.y += 10;
+
+        if (commands.commandStringContain("run_left"))
+        {
+            character.flipH();
+            character.motion.x = -1 * Constant.PLAYER_RUN_SPEED;
+        }
+        if (commands.commandStringContain("run_right"))
+        {
+            character.notFlipH();
+            character.motion.x = Constant.PLAYER_RUN_SPEED;
+        }
     }
 }
