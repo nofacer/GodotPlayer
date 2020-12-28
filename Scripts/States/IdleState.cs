@@ -18,7 +18,6 @@ public class IdleState : PlayerState
         // To Jump State
         if (commands.commandStringContain("jump"))
         {
-            character.motion.y = -300;
             return new JumpState();
         }
         // To Fall State

@@ -15,7 +15,6 @@ public class RunState : PlayerState
         // To Jump State prioty
         if (commands.commandStringContain("jump"))
         {
-            character.motion.y = -500;
             return new JumpState();
         }
         // To Run State

@@ -6,6 +6,10 @@ public class JumpState : PlayerState
 {
     public override void enter(Player character)
     {
+        if (!character.previousPlayerState.GetType().Equals(typeof(JumpState)))
+        {
+            character.motion.y = -250;
+        }
         character.playAnimation("jump");
     }
     public override PlayerState handleInput(Player character, CommandPool commands)

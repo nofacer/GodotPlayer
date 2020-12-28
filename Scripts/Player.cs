@@ -5,6 +5,7 @@ public class Player : KinematicBody2D
     public Vector2 motion = new Vector2(0, 0);
 
     public PlayerState playerState;
+    public PlayerState previousPlayerState;
 
     private InputHandler inputHandler = new InputHandler();
 
@@ -17,6 +18,7 @@ public class Player : KinematicBody2D
     {
         CommandPool commands = inputHandler.handleInput();
         PlayerState newPlayerState = this.playerState.handleInput(this, commands);
+        this.previousPlayerState = this.playerState;
         this.playerState = newPlayerState != null ? newPlayerState : this.playerState;
         this.playerState.enter(this);
         this.playerState.update(this, commands);
