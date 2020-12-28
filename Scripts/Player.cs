@@ -16,13 +16,14 @@ public class Player : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
+        motion.y += Constant.GRAVITY;
         CommandPool commands = inputHandler.handleInput();
         PlayerState newPlayerState = this.playerState.handleInput(this, commands);
         this.previousPlayerState = this.playerState;
         this.playerState = newPlayerState != null ? newPlayerState : this.playerState;
         this.playerState.enter(this);
         this.playerState.update(this, commands);
-        MoveAndSlide(motion, new Vector2(0, -1));
+        motion = MoveAndSlide(motion, new Vector2(0, -1));
         Label richTextLabel = (Label)this.GetNode("Label");
         richTextLabel.Text = this.playerState.name;
     }

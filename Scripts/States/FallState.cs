@@ -13,16 +13,17 @@ public class FallState : PlayerState
     }
     public override PlayerState handleInput(Player character, CommandPool commands)
     {
+        // To idle state, prioty 1
         if (character.IsOnFloor())
         {
             return new IdleState();
         }
+        // Keep Last Statep 
         return null;
     }
 
     public override void update(Player character, CommandPool commands)
     {
-        character.motion.y += 10;
 
         if (commands.commandStringContain("run_left"))
         {

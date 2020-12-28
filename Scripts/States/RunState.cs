@@ -14,17 +14,17 @@ public class RunState : PlayerState
     }
     public override PlayerState handleInput(Player character, CommandPool commands)
     {
-        // To Idle State
+        // To Fall State, prioty 1
+        if (!character.IsOnFloor())
+        {
+            return new FallState();
+        }
+        // To Idle State, prioty 2
         if (commands.isEmpty()) { return new IdleState(); }
-        // To Jump State prioty
+        // To Jump State, prioty 2
         if (commands.commandStringContain("jump"))
         {
             return new JumpState();
-        }
-        // To Run State
-        if (commands.commandStringContain("run_left") || commands.commandStringContain("run_right"))
-        {
-            return new RunState();
         }
         // Keep Last State
         return null;

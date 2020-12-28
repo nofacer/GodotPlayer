@@ -30,7 +30,6 @@ public class JumpState : PlayerState
     public override void update(Player character, CommandPool commands)
     {
         AnimatedSprite animatedSprite = (AnimatedSprite)character.GetNode("AnimatedSprite");
-        character.motion.y += 10;
 
         if (commands.commandStringContain("run_left"))
         {
